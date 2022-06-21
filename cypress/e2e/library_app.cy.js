@@ -7,7 +7,6 @@ describe("Test on React Library App", () => {
   const userDashboardPage = new UserDashboardPage();
   const userName = faker.internet.userName()
   const password = faker.random.alphaNumeric(8)
-  const bookName = "Voice of War";
 
   before(() => {
     cy.visit("https://ts-e2e-challenge.netlify.app/list");
@@ -28,10 +27,10 @@ describe("Test on React Library App", () => {
   it("Verifies that books are in reading list", () => {
     homePage.doLogin();
     userDashboardPage.gotoDiscover();
-    userDashboardPage.searchForBook(bookName);
-    userDashboardPage.addBookInTheList(bookName);
+    userDashboardPage.searchForBook();
+    userDashboardPage.addBookInTheList();
     cy.wait(3000);
     userDashboardPage.gotoReadingList();
-    userDashboardPage.verifyBookIsAddedInReadingList(bookName);
+    userDashboardPage.verifyBookIsAddedInReadingList();
   })
 })
